@@ -13,6 +13,7 @@ export class CdkCicdStack extends cdk.Stack {
         input: CodePipelineSource.gitHub('mnowak02/alexcicd', 'cicd-practice'),
         commands: [
           'ls -al',
+          'ls -l',
           'npm ci',
           'npx cdk synth',
         ],
