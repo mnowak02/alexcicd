@@ -12,8 +12,9 @@ export class CdkCicdStack extends cdk.Stack {
       synth: new ShellStep('Synth',{
         input: CodePipelineSource.gitHub('mnowak02/alexcicd', 'cicd-practice'),
         commands: [
+          'ls -al',
           'npm ci',
-          'npx cdk synth'
+          'npx cdk synth',
         ],
       })
     })
