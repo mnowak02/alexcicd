@@ -14,6 +14,7 @@ export class CdkCicdStack extends cdk.Stack {
         commands: [
           'ls -al',
           'ls -l',
+          'pwd',
           'npm ci',
           'npx cdk synth',
         ],
