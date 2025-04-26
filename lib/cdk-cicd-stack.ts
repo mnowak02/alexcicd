@@ -34,6 +34,12 @@ export class CdkCicdStack extends cdk.Stack {
       ]
     }))
 
+    testStage.addPre(new CodeBuildStep('unit-testpre', {
+      commands: [
+        'ls -al'
+      ]
+    }))
+
     const testStage1 = pipeline.addStage(new PipelineStage(this, 'PipelineTestStage1',{
       stageName: 'testowy1'
     }))
@@ -42,6 +48,12 @@ export class CdkCicdStack extends cdk.Stack {
       commands: [
         'npm ci',
         'npm test'
+      ]
+    }))
+
+    testStage1.addPost(new CodeBuildStep('unit-testpost', {
+      commands: [
+        'ls -al'
       ]
     }))
 
